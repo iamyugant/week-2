@@ -1,4 +1,4 @@
-import numpy as np
+
 # Given an amount n, return the number of ways to make change for n
 def ways(n, coin_types=[1, 5]):
     # Initialize a list to store the number of ways to make change for each amount
@@ -15,37 +15,29 @@ def ways(n, coin_types=[1, 5]):
     
     return ways_list[n]
 
+if __name__ == "__main__":
+    print(ways(12))
+    print(ways(20))
+    print(ways(3))
+    print(ways(0))
 
-print(ways(12))
-print(ways(20))
-print(ways(3))
-print(ways(0))
-
+import numpy as np
 
 def lowest_score(names, scores):
-    """Return the name of the student with the lowest score.
-
-    Args:
-        names: A NumPy array of student names.
-        scores: A NumPy array of student scores.
-
-    Returns:
-        The name of the student with the lowest score.
-    """
+    # Return the name of the student with the lowest test score.
     index = np.argmin(scores)
+    # Return the name corresponding to the lowest score index
     return names[index]
 
 
 def sort_names(names, scores):
-    """Return student names sorted by descending test score.
-
-    Args:
-        names: A NumPy array of student names.
-        scores: A NumPy array of student scores.
-
-    Returns:
-        A NumPy array of names sorted from highest to lowest score.
-    """
+    # Return the names sorted in descending order by their corresponding scores.
     sorted_indices = np.argsort(scores)[::-1]
+    # Return names sorted by the sorted indices
     return names[sorted_indices]
 
+if __name__ == "__main__":
+    names = np.array(['Hannah', 'Astrid', 'Abdul', 'Mauve', 'Jung'])
+    scores = np.array([99, 71, 85, 62, 91])
+    print(lowest_score(names, scores))  # Should print 'Mauve'
+    print(sort_names(names, scores))    # Should print names sorted by scores
